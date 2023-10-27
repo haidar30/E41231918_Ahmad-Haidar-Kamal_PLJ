@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\PengalamanKerjaController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\managementUserController;
 use App\Http\Controllers\Backend\PendidikanController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\SessionController;
 use App\Http\Middleware\CheckAge;
 use Illuminate\Support\Facades\Auth;
@@ -32,6 +33,9 @@ Route::resource('/user', ManagementUserController::class);
 Route::get('session/create', [SessionController::class, 'create']);
 Route::get('session/show', [SessionController::class, 'show']);
 Route::get('session/delete', [SessionController::class, 'delete']);
+
+Route::get('pegawai/{nama}', [PegawaiController::class, 'index']);
+
 
 Route::group(['namespace' => 'Frontend'], function(){
     Route::resource('/home', HomeController::class);
